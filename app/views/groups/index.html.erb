@@ -1,0 +1,22 @@
+<%= render(HeaderComponent.new()) %>
+<div>
+  <h1>Groups Index</h1>
+    <table class="table-auto">
+      <thead>
+        <tr>
+          <th>Group Name</th>
+          <th>Members</th>
+          <th>Posts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @groups.each do |group| %>
+          <tr>
+            <td><%=group.name%></td>
+            <td>Malcolm Lockyer</td>
+            <td>1961</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+<div>
