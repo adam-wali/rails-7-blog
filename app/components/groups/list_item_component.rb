@@ -4,6 +4,6 @@ class Groups::ListItemComponent < HeaderComponent
   end
 
   def get_last_activity
-    @group.last_ativity
+    @group.last_activity
   end
 end
