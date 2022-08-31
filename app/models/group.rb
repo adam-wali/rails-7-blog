@@ -5,4 +5,8 @@ class Group < ApplicationRecord
   has_many :members, through: :group_member, source: :user
 
   has_many :posts
+
+  def joined?
+    false
+  end
 end

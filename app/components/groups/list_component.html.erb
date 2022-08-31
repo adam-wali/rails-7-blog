@@ -1,0 +1,3 @@
+<% @groups.each do |group| %>
+  <tr><%= render(Groups::ListItemComponent.new(group: group)) %></tr>
+<% end %>

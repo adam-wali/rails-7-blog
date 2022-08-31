@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   end
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  resources :groups
+  resources :groups do
+    post 'join', on: :member
+  end
 
   # Defines the root path route ("/")
 end
