@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :groups do
+    delete 'remove_member', on: :member
     post 'join', on: :member
     resources :posts, shallow: true do
       resources :comments, shallow: true

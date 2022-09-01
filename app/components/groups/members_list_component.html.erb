@@ -1,3 +1,3 @@
 <% @members.each do |member| %>
-  <%= member.full_name %> x
+  <%= member.full_name %> <%= link_to 'x', remove_member_group_url(member_id: member.id), data: {turbo_method: :delete}, remote: true %>
 <% end %>
