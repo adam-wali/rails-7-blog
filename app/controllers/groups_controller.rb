@@ -1,6 +1,5 @@
 class GroupsController < ApplicationController
   def index
-
     respond_to do |format|
       format.html {
         @groups = Group.all
@@ -18,14 +17,20 @@ class GroupsController < ApplicationController
     @members = @group.members
   end
 
+  def create
+    @group = Group.create(
+      name: params.dig(:group, :name),
+      user_id: current_user.id
+    )
+
+    redirect_to groups_path if @group.persisted?
+  end
+
   def remove_member
     @group_member = GroupMember.find_by(user_id: params[:member_id], group_id: params[:id])
 
     redirect_to groups_path, alert: "Unable to remove member." and return unless @group_member.present?
 
     redirect_to groups_path(params[:id]), notice: "Member removed" if @group_member.destroy
-  end
-
-  def join
   end
 end

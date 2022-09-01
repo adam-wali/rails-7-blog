@@ -1,11 +1,31 @@
-<%= render(HeaderComponent.new()) %><br>
+<div id="group-index" data-controller="group">
+  <%= render(HeaderComponent.new()) %><br>
 
-<%= render(Groups::HeaderComponent.new()) %><br>
-<br>
-<table class="table w-full">
-  <tbody>
-    <div id="groups-list table-row-group">
-      <%= render(Groups::ListComponent.new(groups: @groups, current_user: current_user)) %>
-    <div>
-  </tbody>
-</table>
+  <%= render(Groups::HeaderComponent.new()) %><br>
+  <br>
+
+  <table class="table-auto">
+    <tbody>
+      <div id="groups-list table-row-group">
+        <%= render(Groups::ListComponent.new(groups: @groups, current_user: current_user)) %>
+      <div>
+    </tbody>
+  </table>
+  <div id="overlay" class="bg-black bg-opacity-50 absolute inset-0 hidden justify-center items-center" data-controller="modal" data-group-target="modal">
+    <div class="bg-gray-200 mx-w-sm py-2 px-3 rounded shadow-xl">
+      <div class="text-lg font-bold" data-action="click->group#closeModal">
+        <%= link_to 'X', "javascript:void(0);" %>
+        <h4>Create Group</h4>
+      </div>
+      <div class="text-sm">
+        <%= form_for :group do |f| %>
+          <div class="field">
+            <%= f.label :name, "Group Name" %><br />
+            <%= f.text_field :name, autofocus: true %>
+            <%= f.submit "Submit" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
