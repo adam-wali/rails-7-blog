@@ -1,0 +1,6 @@
+<div>
+  <%= form_for [@post, @comment] do |f| %>
+    <%= f.text_area :text, placeholder: 'Enter comment' %>
+    <%= f.submit "Comment", disable_with: 'Submiting...' %>
+  <% end %>
+</div>

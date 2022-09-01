@@ -1,0 +1,6 @@
+<td>
+  <%= @comment.text %><br>
+  <i>
+    <%= @comment.user.full_name %> Commented <%= link_to_if false, "Reply", new_post_comment_url(post_id: @post.id) %>
+  </i>
+</td>

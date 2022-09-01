@@ -1,2 +1,19 @@
-<%= @post.title %>
-<%= @post.text %>
+<div>
+  <%= @post.title %>
+  <%= @post.text %>
+</div>
+<br>
+
+<div>
+  <h1><b><u>Comments</u></b></h1>
+  <table>
+    <tbody>
+      <%= render Comments::ListComponent.new(post: @post, comments: @comments, current_user: current_user) %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+<div class="float-right flex-1">
+  <%= render Comments::CreateFormComponent.new(comment: @comment, post: @post) %>
+</div>

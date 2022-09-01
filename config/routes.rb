@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :groups do
     post 'join', on: :member
-    resources :posts, shallow: true
+    resources :posts, shallow: true do
+      resources :comments, shallow: true
+    end
   end
 
   # Defines the root path route ("/")
