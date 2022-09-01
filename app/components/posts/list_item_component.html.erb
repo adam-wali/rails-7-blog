@@ -1,0 +1,9 @@
+<div>
+  <%= link_to @post.title, post_path(@post) %>
+</div>
+<div>
+  <%= @post.text %>
+</div>
+<div>
+  <i>Created by <%= @post.user.full_name %></i>
+</div><br>

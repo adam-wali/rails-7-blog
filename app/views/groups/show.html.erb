@@ -1,0 +1,13 @@
+<div>
+  <h1><b><%= @group.name %></b></h1>
+
+  <%= render Posts::CreateFormComponent.new(group: @group, post: @new_post) %><br>
+
+  <h2><b><u>All Posts</u></b></h2>
+  <%= render(Posts::ListComponent.new(posts: @posts, current_user: @current_user)) %>
+</div>
+
+<div class="float-right">
+  <h2><b>Members</b></h2>
+  <%= render Groups::MembersListComponent.new(members: @members, current_user: current_user) %>
+</div>

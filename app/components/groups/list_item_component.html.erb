@@ -1,7 +1,8 @@
+<br>
 <div>
-  <%= @group.name %>
+  <%= link_to_if group_joined?, @group.name, group_path(@group) %>
   <%= @group.members.count %> Members, <%= @group.posts.count %> Posts, Last Activity <%= get_last_activity() %>
 </div>
 <div>
-  <% link_to "Join Group", join_group_path(@group), class: "px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" if @group.joined? %>
+  <%= link_to "Join Group", join_group_path(@group), class: "px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" unless group_joined? %>
 </div>

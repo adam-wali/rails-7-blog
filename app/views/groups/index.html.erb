@@ -1,11 +1,11 @@
-<%= render(HeaderComponent.new()) %>
-<br/>
-<%= render(Groups::HeaderComponent.new()) %>
+<%= render(HeaderComponent.new()) %><br>
+
+<%= render(Groups::HeaderComponent.new()) %><br>
 
 <table class="table-auto">
   <tbody>
     <div id="groups-list">
-      <%= render(Groups::ListComponent.new(groups: @groups)) %>
+      <%= render(Groups::ListComponent.new(groups: @groups, current_user: current_user)) %>
     <div>
   </tbody>
 </table>

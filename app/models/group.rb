@@ -6,7 +6,7 @@ class Group < ApplicationRecord
 
   has_many :posts
 
-  def joined?
-    false
+  def member?(user)
+    members.include?(user) || self.owner == user
   end
 end

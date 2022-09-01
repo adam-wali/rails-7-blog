@@ -11,6 +11,13 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @group = Group.find params[:id]
+    @new_post = Post.new
+    @posts = @group.posts
+    @members = @group.members
+  end
+
   def join
   end
 end
