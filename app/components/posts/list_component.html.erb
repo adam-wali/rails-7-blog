@@ -1,0 +1,3 @@
+<% @posts.each do |post| %>
+  <tr><%= render(Posts::ListItemComponent.new(post: post, current_user: @current_user)) %></tr>
+<% end %>

@@ -1,0 +1,6 @@
+<% @replies.each do |reply| %>
+  <div class="mt-2 mb-1 ml-8 text-sm"><p><%= reply.text %></p></div>
+  <i>
+    <div class="text-xs text-gray-500 flex ml-8 mb-3"><%= reply.user.full_name %> Replied</div>
+  </i>
+<% end %>

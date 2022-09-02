@@ -1,0 +1,19 @@
+<div class="flex">
+  <div class="w-3/5">
+
+    <div>
+      <h1 class="text-4xl mb-4"><%= @post.title %></h1>
+      <%= @post.text %>
+    </div>
+
+    <div>
+      <h2 class="text-2xl  mt-4 mb-4">Comments</h2>
+      <%= render Comments::ListComponent.new(post: @post, comments: @comments, current_user: current_user, reply: @reply) %>
+    </div>
+
+    <div>
+      <%= render Comments::CreateFormComponent.new(comment: @comment, post: @post) %>
+    </div>
+
+  </div>
+</div>

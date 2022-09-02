@@ -1,0 +1,3 @@
+<% @comments.each do |comment| %>
+  <%= render(Comments::ListItemComponent.new(post: @post, comment: comment, current_user: @current_user, reply: @reply)) %>
+<% end %>

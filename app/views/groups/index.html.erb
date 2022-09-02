@@ -1,0 +1,34 @@
+<div id="group-index" data-controller="group">
+  <%= render(HeaderComponent.new()) %><br>
+
+  <%= render(Groups::HeaderComponent.new()) %><br>
+  <br>
+
+  <table class="table-auto">
+    <tbody>
+      <div id="groups-list table-row-group">
+        <%= render(Groups::ListComponent.new(groups: @groups, current_user: current_user)) %>
+      <div>
+    </tbody>
+  </table>
+  <div id="overlay" class="bg-black bg-opacity-50 absolute overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full justify-center items-center flex  hidden" data-controller="modal" data-group-target="modal">
+    <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
+      <div class="p-4 w-full bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+        <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600" data-action="click->group#closeModal">
+          <h4 class="text-2xl">Create Group</h4>
+          <%= link_to 'X', "javascript:void(0);" %>
+        </div>
+        <div class="pt-5 pb-5">
+          <%= form_for :group do |f| %>
+            <div class="field">
+              <%= f.label :name, "Group Name" %><br />
+              <%= f.text_field :name, autofocus: true, class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' %>
+              <%= f.submit "Submit", class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5" %>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
