@@ -1,16 +1,14 @@
-<td>
-  <%= @comment.text %><br>
-  <i>
-    <%= @comment.user.full_name %> Commented, <div>Reply</div>
-  </i>
-</td>
+<div class="mt-5"><%= @comment.text %></div>
+<i>
+  <div class="text-xs text-gray-500 flex mt- mb-3"><%= @comment.user.full_name %> Commented</div>
+</i>
 <div>
   <%= render Comments::RepliesComponent.new(replies: @comment.replies) %>
 </div>
-<div>
+<div class="ml-8">
   <%= form_with url: comment_reply_path(comment_id: @comment.id), method: :post do |f| %>
     <%= f.hidden_field :post_id, value: @post.id %>
-    <%= f.text_area :text, placeholder: 'Enter reply' %>
-    <%= f.submit "Reply", disable_with: 'Replying...' %>
+    <%= f.text_area :text, class: "block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: 'Enter reply' %>
+    <%= f.submit "Reply", disable_with: 'Replying...', class: "text-xs px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" %>
   <% end %>
 </div>

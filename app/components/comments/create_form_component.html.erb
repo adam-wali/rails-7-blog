@@ -1,6 +1,6 @@
-<div>
+<div class="mt-5">
   <%= form_for [@post, @comment] do |f| %>
-    <%= f.text_area :text, placeholder: 'Enter comment' %>
-    <%= f.submit "Comment", disable_with: 'Submiting...' %>
+    <%= f.text_area :text, rows:"4", class: "block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500", placeholder: 'Enter comment' %>
+    <%= f.submit "Comment", disable_with: 'Submiting...', class: "px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" %>
   <% end %>
 </div>

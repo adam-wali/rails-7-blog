@@ -1,13 +1,9 @@
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-<div class="relative h-32 w-full">
-  <div class="absolute top-0 right-0 h-12 w-full">
-    <ul>
-      <li class="mr-6">
-        <%= link_to "Groups", class: "text-blue-500 hover:text-blue-800" %>
-      </li>
-      <li class="mr-6">
-        <%= button_to 'Signout', destroy_user_session_path, method: :delete, class: "text-blue-500 hover:text-blue-800" %>
-      </li>
-    </ul>
+<nav class="bg-white px-2 sm:px-4 py-2.5 rounded">
+  <div class="container flex flex-wrap justify-end items-center mx-auto">
+    <div class="flex">
+      <%= link_to "Groups", groups_path, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mr-3" %>
+      <%= button_to 'Signout', destroy_user_session_path, method: :delete, class: "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" %>
+    </div>
   </div>
-</div>
+</nav>

@@ -1,7 +1,7 @@
-<div>
+<div class="mt-4">
   <%= form_for [@group, @post ] do |f| %>
-    <%= f.text_field :title, placeholder: "Post Title" %><br>
-    <%= f.text_area :text, placeholder: "Post Text" %><br>
+    <%= f.text_field :title, placeholder: "Post Title", class: 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500' %><br>
+    <%= f.text_area :text, placeholder: "Post Text", class: 'block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500' %><br>
     <%= f.submit "Post", disable_with: 'Submiting...', class: "px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" %>
   <% end %>
 </div>

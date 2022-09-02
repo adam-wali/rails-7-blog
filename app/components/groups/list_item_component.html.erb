@@ -1,8 +1,6 @@
 <br>
 <div class="row-cell w-200">
-  <%= link_to_if group_joined?, @group.name, group_path(@group) %><br>
-  <%= @group.members.count %> Members, <%= @group.posts.count %> Posts, Last Activity <%= get_last_activity() %>
-</div>
-<div class="row-cell">
-  <%= link_to "Join Group", join_group_path(@group), class: "px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" unless group_joined? %>
+  <h1 class="text-2xl"><%= link_to_if group_joined?, @group.name, group_path(@group) %></h1><br>
+  <i><%= @group.members.count %> Members, <%= @group.posts.count %> Posts, Last Activity <%= get_last_activity() %></i>
+  <%= link_to "Join Group", join_group_path(@group), data: {turbo_method: :post}, class: "px-6 py-2 mt-4 ml-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" unless group_joined? %>
 </div>

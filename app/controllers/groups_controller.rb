@@ -26,9 +26,18 @@ class GroupsController < ApplicationController
 
   def remove_member
     @group_member = GroupMember.find_by(user_id: params[:member_id], group_id: params[:id])
-
     redirect_to groups_path, alert: "Unable to remove member." and return unless @group_member.present?
 
-    redirect_to groups_path(params[:id]), notice: "Member removed" if @group_member.destroy
+    redirect_to group_path(params[:id]), notice: "Member removed" if @group_member.destroy
+  end
+
+  def join
+    @group_member = GroupMember.create(
+      user_id: current_user.id,
+      group_id: params[:id]
+    )
+    redirect_to groups_path, alert: "Unable to join group." and return unless @group_member.persisted?
+
+    redirect_to group_path(params[:id]), notice: "Successfully joined group"
   end
 end

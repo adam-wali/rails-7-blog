@@ -1,17 +1,17 @@
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-<div>
-  <ul class="flex">
-    <li class="mr-6">
-      <%= link_to 'All Groups', groups_path, class: "text-blue-500 hover:text-blue-800" %>
+<div class="container flex justify-between">
+  <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200">
+    <li class="mr-2">
+      <%= link_to 'All Groups', groups_path, class: "inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:text-gray-900" %>
     </li>
-    <li class="mr-6">
-      <%= link_to 'Created by Me', groups_path(request_type: "owned_groups"), class: "text-blue-500 hover:text-blue-800", remote: true %>
+    <li class="mr-2">
+      <%= link_to 'Created by Me', groups_path(request_type: "owned_groups"), class: "inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:text-gray-900", remote: true %>
     </li>
-    <li class="mr-6">
-      <%= link_to 'Where I am member', groups_path(request_type: "joined_groups"), class: "text-blue-500 hover:text-blue-800", remote: true %>
-    </li>
-    <li class="mr-6" id="create-group-btn" data-action="click->group#openModal">
-      <%= link_to 'Create a New Group', "javascript:void(0);", class: "text-blue-500 hover:text-blue-800" %>
+    <li class="mr-2">
+      <%= link_to 'Where I am member', groups_path(request_type: "joined_groups"), class: "inline-block p-4 rounded-t-lg hover:text-gray-600 hover:bg-gray-50 dark:hover:text-gray-900", remote: true %>
     </li>
   </ul>
+  <div id="create-group-btn" data-action="click->group#openModal">
+    <%= link_to 'Create a New Group', "javascript:void(0);", class: "px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900" %>
+  </div>
 </div>
