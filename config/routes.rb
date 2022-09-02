@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   resources :groups do
     delete 'remove_member', on: :member
     post 'join', on: :member
-    resources :posts, shallow: true do
-      resources :comments, shallow: true
+    resources :posts ,shallow: true do
+      resources :comments do
+        post :reply
+      end
     end
   end
 

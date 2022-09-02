@@ -8,7 +8,7 @@
   <h1><b><u>Comments</u></b></h1>
   <table>
     <tbody>
-      <%= render Comments::ListComponent.new(post: @post, comments: @comments, current_user: current_user) %>
+      <%= render Comments::ListComponent.new(post: @post, comments: @comments, current_user: current_user, reply: @reply) %>
     </tbody>
   </table>
 </div>

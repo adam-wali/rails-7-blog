@@ -1,6 +1,16 @@
 <td>
   <%= @comment.text %><br>
   <i>
-    <%= @comment.user.full_name %> Commented <%= link_to_if false, "Reply", new_post_comment_url(post_id: @post.id) %>
+    <%= @comment.user.full_name %> Commented, <div>Reply</div>
   </i>
 </td>
+<div>
+  <%= render Comments::RepliesComponent.new(replies: @comment.replies) %>
+</div>
+<div>
+  <%= form_with url: comment_reply_path(comment_id: @comment.id), method: :post do |f| %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.text_area :text, placeholder: 'Enter reply' %>
+    <%= f.submit "Reply", disable_with: 'Replying...' %>
+  <% end %>
+</div>

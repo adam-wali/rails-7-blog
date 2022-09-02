@@ -1,12 +1,10 @@
 class GroupsController < ApplicationController
   def index
-    respond_to do |format|
-      format.html {
-        @groups = Group.all
-      }
-      format.js {
-        @groups = current_user.send(params[:request_type])
-      }
+
+    if params[:request_type].present?
+      @groups = current_user.send(params[:request_type])
+    else
+      @groups = Group.all
     end
   end
 

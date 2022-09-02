@@ -17,5 +17,6 @@ class PostsController < ApplicationController
     @post = Post.find params[:id]
     @comments = @post.comments
     @comment = Comment.new
+    @reply = Comment.new
   end
 end
